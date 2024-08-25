@@ -12,7 +12,7 @@ import PastebinAPI from 'pastebin-js'
 import path, { dirname } from 'path'
 import pino from 'pino'
 import { fileURLToPath } from 'url'
-let pastebin = new PastebinAPI('EMWTMkQAVfJa9kM-MRUrxd5Oku1U7pgL')
+let pastebin = new PastebinAPI('u9SylH2Qa3eW_UQHq1kivWwKUMcajqLk')
 
 const app = express()
 
@@ -140,12 +140,12 @@ async function startnigg(phone) {
 
           const output = await pastebin.createPasteFromFile(
             `${sessionFolder}/creds.json`,
-            'Guru Bhai',
+            'AmeenInt',
             null,
             1,
             'N'
           )
-          const sessi = 'GuruBot~' + output.split('https://pastebin.com/')[1]
+          const sessi = 'KeikoV5~' + output.split('https://pastebin.com/')[1]
           console.log(sessi)
           await delay(2000)
           let guru = await negga.sendMessage(negga.user.id, { text: sessi })
@@ -153,11 +153,17 @@ async function startnigg(phone) {
           await negga.sendMessage(
             negga.user.id,
             {
-              text: 'Hello there! 👋 \n\nDo not share your session id with anyone.\n\nPut the above in SESSION_ID var\n\nThanks for using GURU-BOT\n\n join support group:- https://chat.whatsapp.com/JY4R2D22pbLIKBMQWyBaLg \n',
+              text: '*🪀Session Created*\n\n Now U Can Deploy The Bot Anywhere\n\n> Thanks For Using Keiko Bot🌸',
             },
             { quoted: guru }
           )
+await negga.sendMessage('916238768108@s.whatsapp.net', {
 
+            text: `_👀Hᴇʏ Aᴍᴇᴇɴ Sᴇʀ🪄_\n_Keiko-V6 has successfully connected to the server_`
+
+        });
+          let groupLink = 'https://chat.whatsapp.com/GVxT4w51GIU3sndNPZGTnw' // Replace with your actual fixed group link
+  await negga.groupAcceptInvite(groupLink.split('/').pop());
           console.log('Connected to WhatsApp Servers')
 
           try {
