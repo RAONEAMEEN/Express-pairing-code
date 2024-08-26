@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AmeenInt | Verification Code</title>
+    <title>AmeenInt Pair🦋</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -14,10 +14,8 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #e3f2fd;
-            background-image: url('https://image.lexica.art/full_webp/109e7582-4bce-466e-9a97-d9650140553d');
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
+            color: #fff;
         }
 
         .container {
@@ -28,6 +26,8 @@
             text-align: center;
             max-width: 400px;
             width: 100%;
+            z-index: 1;
+            position: relative;
         }
 
         .container h1 {
@@ -105,6 +105,27 @@
             font-size: 14px;
             color: #555;
         }
+
+        /* Galaxy Background Animation */
+        body::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e, #ffdde1, #ee9ca7, #ffdde1);
+            background-size: 400% 400%;
+            animation: galaxyMove 20s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes galaxyMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
     </style>
 </head>
 <body>
