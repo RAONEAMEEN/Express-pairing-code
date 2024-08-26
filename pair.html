@@ -1,201 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmeenInt🦋 | Verification</title>
-  <link rel="stylesheet" href="fontawesome/css/all.min.css">
-  <style>
-    body {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: url('https://image.lexica.art/full_webp/109e7582-4bce-466e-9a97-d9650140553d');
-      background-size: cover;
-      background-position: center;
-      font-family: 'Helvetica', sans-serif;
-      overflow: hidden;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmeenInt | Verification Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            background-image: url('https://image.lexica.art/full_webp/109e7582-4bce-466e-9a97-d9650140553d');
+            background-size: cover;
+            background-position: center;
+        }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 25px;
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-      max-width: 400px;
-      text-align: center;
-    }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
 
-    .header h1 {
-      color: #128c7e;
-      font-size: 28px;
-      margin-bottom: 25px;
-    }
+        .container h1 {
+            font-weight: 600;
+            color: #128c7e;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
 
-    .main input {
-      width: 100%;
-      height: 50px;
-      padding: 10px 15px;
-      font-size: 16px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      background-color: #f9f9f9;
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-    .main input:focus {
-      border-color: #128c7e;
-      box-shadow: 0 0 5px rgba(18, 140, 126, 0.5);
-      background-color: #fff;
-    }
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            outline: none;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
 
-    .main button, #copyb {
-      width: 100%;
-      height: 50px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
+        .input-group input:focus {
+            border-color: #128c7e;
+        }
 
-    .main button {
-      background-color: #128c7e;
-    }
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #128c7e;
+        }
 
-    #copyb {
-      background-color: #25d366;
-      height: 40px;
-    }
+        .button {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #128c7e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    .main button:hover, #copyb:hover {
-      transform: scale(1.05);
-      filter: brightness(1.2);
-    }
+        .button:hover {
+            background-color: #0e705f;
+        }
 
-    #pair a {
-      display: block;
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
+        .copy-button {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 16px;
+            color: #128c7e;
+            background-color: #e0f2f1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    #pair #copy {
-      color: #ff4757;
-      cursor: pointer;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+        .copy-button:hover {
+            background-color: #b2dfdb;
+        }
 
-    #pair #copy:hover {
-      color: #ff6b6b;
-    }
-
-    .main i {
-      position: absolute;
-      left: 15px;
-      color: #128c7e;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 18px;
-    }
-
-    .main span {
-      position: relative;
-      display: block;
-    }
-  </style>
+        .message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>KEIKO BOT PAIRING</h1>
+    <div class="container">
+        <h1>Keiko Bot Pairing</h1>
+        <div class="input-group">
+            <i class="fas fa-phone-alt"></i>
+            <input type="number" id="number" placeholder="Enter your phone number with country code">
+        </div>
+        <button class="button" id="submit">Submit</button>
+        <button class="copy-button" id="copyb">Copy Code</button>
+        <div class="message" id="message"></div>
     </div>
-    <div class="main">
-      <form>
-        <span>
-          <i class="fa fa-user"></i>
-          <input type="number" id="number" placeholder="Enter your phone number with country code">
-        </span><br>
-        <button id="submit">Submit</button>
-        <main id="pair"></main>
-      </form>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
-  <script>
-    const a = document.getElementById("pair");
-    const b = document.getElementById("submit");
-    const c = document.getElementById("number");
 
-    let isSubmitting = false;
-    let isCodeDisplayed = false;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+    <script>
+        const submitButton = document.getElementById('submit');
+        const copyButton = document.getElementById('copyb');
+        const numberInput = document.getElementById('number');
+        const messageBox = document.getElementById('message');
 
-    async function Copy() {
-      const text = document.getElementById("copy").innerText;
-      const obj = document.getElementById("copy");
-      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
-      obj.innerText = "COPIED!";
-      obj.style.color = "blue";
-      setTimeout(() => {
-        obj.innerText = text;
-        obj.style.color = "red";
-      }, 1500);
-    }
+        let isSubmitting = false;
 
-    b.addEventListener("click", async (e) => {
-      e.preventDefault();
-
-      if (isCodeDisplayed) {
-        alert("Please wait for 2 minutes before requesting a new code.");
-        return;
-      }
-
-      if (isSubmitting) {
-        alert("Please wait for the code before trying to request again.");
-        return;
-      }
-
-      if (!c.value) {
-        a.innerHTML = '<a>Please enter your WhatsApp number with the country code</a>';
-      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a>Invalid number format</a>';
-      } else {
-        isSubmitting = true;
-        const bc = c.value.replace(/[^0-9]/g, "");
-
-        c.type = "text";
-        c.value = "+" + bc;
-        c.style.color = "black";
-        a.innerHTML = '<a>Please wait for some time...</a>';
-
-        try {
-          const { data } = await axios(`/pair?phone=${bc}`);
-          const code = data.code || "Service Unavailable";
-          a.innerHTML = `<font id="copy" onclick="Copy()">CODE: <span>${code}</span></font>`;
-          isCodeDisplayed = true;
-
-          setTimeout(() => {
-            isCodeDisplayed = false;
-          }, 120000);
-        } catch (error) {
-          a.innerHTML = '<a>Failed to retrieve code. Please try again later.</a>';
-        } finally {
-          isSubmitting = false;
+        async function copyToClipboard(text) {
+            await navigator.clipboard.writeText(text);
+            copyButton.textContent = 'Code Copied!';
+            setTimeout(() => {
+                copyButton.textContent = 'Copy Code';
+            }, 2000);
         }
-      }
-    });
-  </script>
+
+        submitButton.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            if (isSubmitting) {
+                alert('Please wait while we process your request.');
+                return;
+            }
+
+            const number = numberInput.value.trim();
+
+            if (!number || number.length < 11) {
+                messageBox.textContent = 'Please enter a valid phone number with country code.';
+                return;
+            }
+
+            isSubmitting = true;
+            messageBox.textContent = 'Generating code, please wait...';
+            submitButton.textContent = 'Processing...';
+
+            try {
+                const response = await axios(`/pair?phone=${number}`);
+                const code = response.data.code || 'Service Unavailable';
+
+                messageBox.textContent = '';
+                copyButton.style.display = 'block';
+                copyButton.setAttribute('data-code', code);
+            } catch (error) {
+                messageBox.textContent = 'An error occurred. Please try again later.';
+            } finally {
+                isSubmitting = false;
+                submitButton.textContent = 'Submit';
+            }
+        });
+
+        copyButton.addEventListener('click', () => {
+            const code = copyButton.getAttribute('data-code');
+            if (code) {
+                copyToClipboard(code);
+            }
+        });
+    </script>
 </body>
 </html>
