@@ -92,8 +92,8 @@ app.get('/pair', async (req, res) => {
 
 async function uploadToMega(sessionPath) {
   const storage = mega({
-    email: 'your-mega-email@example.com', // Replace with your MEGA email
-    password: 'your-mega-password' // Replace with your MEGA password
+    email: 'ameenxnt@gmail.com', 
+    password: 'meeramimmi' 
   })
 
   return new Promise((resolve, reject) => {
