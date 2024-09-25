@@ -15,7 +15,7 @@
     "author": "Guru",
     "license": "",
     "dependencies": {
-        "@hapi/boom": "^11.1.2",
+        "@hapi/boom": "^10.0.1",
         "@types/node": "^18.0.6",
         "@whiskeysockets/baileys": "^6.6.0",
         "cfonts": "^3.2.0",
