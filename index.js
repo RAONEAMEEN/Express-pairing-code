@@ -8,19 +8,16 @@ import Baileys, {
 import cors from 'cors'
 import express from 'express'
 import fs from 'fs'
-import PastebinAPI from 'pastebin-js'
 import path, { dirname } from 'path'
 import pino from 'pino'
 import { fileURLToPath } from 'url'
-let pastebin = new PastebinAPI('u9SylH2Qa3eW_UQHq1kivWwKUMcajqLk')
+import mega from 'megajs'
 
 const app = express()
 
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
-
   res.setHeader('Pragma', 'no-cache')
-
   res.setHeader('Expires', '0')
   next()
 })
@@ -93,6 +90,30 @@ app.get('/pair', async (req, res) => {
   }
 })
 
+async function uploadToMega(sessionPath) {
+  const storage = mega({
+    email: 'your-mega-email@example.com', // Replace with your MEGA email
+    password: 'your-mega-password' // Replace with your MEGA password
+  })
+
+  return new Promise((resolve, reject) => {
+    const file = fs.createReadStream(sessionPath)
+    const upload = storage.upload({ name: 'creds.json' })
+
+    file.pipe(upload)
+
+    upload.on('complete', function() {
+      console.log('File uploaded to Mega')
+      resolve(upload.downloadURL)
+    })
+
+    upload.on('error', function(err) {
+      console.error('Failed to upload file to Mega', err)
+      reject(err)
+    })
+  })
+}
+
 async function startnigg(phone) {
   return new Promise(async (resolve, reject) => {
     try {
@@ -138,14 +159,8 @@ async function startnigg(phone) {
         if (connection === 'open') {
           await delay(10000)
 
-          const output = await pastebin.createPasteFromFile(
-            `${sessionFolder}/creds.json`,
-            'AmeenInt',
-            null,
-            1,
-            'N'
-          )
-          const sessi = 'KeikoV5~' + output.split('https://pastebin.com/')[1]
+          const downloadURL = await uploadToMega(`${sessionFolder}/creds.json`)
+          const sessi = 'KeikoV5~' + downloadURL.split('file/')[1]
           console.log(sessi)
           await delay(2000)
           let guru = await negga.sendMessage(negga.user.id, { text: sessi })
@@ -157,13 +172,13 @@ async function startnigg(phone) {
             },
             { quoted: guru }
           )
-await negga.sendMessage('916238768108@s.whatsapp.net', {
-
+          await negga.sendMessage('916238768108@s.whatsapp.net', {
             text: `_👀Hᴇʏ Aᴍᴇᴇɴ Sᴇʀ🪄_\n_Keiko-V6 has successfully connected to the server_`
-
-        });
+          })
+          
           let groupLink = 'https://chat.whatsapp.com/GVxT4w51GIU3sndNPZGTnw' // Replace with your actual fixed group link
-  await negga.groupAcceptInvite(groupLink.split('/').pop());
+          await negga.groupAcceptInvite(groupLink.split('/').pop())
+          
           console.log('Connected to WhatsApp Servers')
 
           try {
