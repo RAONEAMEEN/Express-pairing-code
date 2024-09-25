@@ -8,6 +8,7 @@ import { watchFile, unwatchFile } from 'fs'
 import cfonts from 'cfonts'
 import { createInterface } from 'readline'
 import yargs from 'yargs'
+import { uploadFile, downloadFile } from './megaStorage.js' // Import Mega functions
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const { say } = cfonts
@@ -53,6 +54,14 @@ function start(file) {
         break
       case 'uptime':
         p.send(process.uptime())
+        break
+      case 'upload':
+        // Trigger file upload to Mega
+        uploadFile('path/to/local/file.txt', 'file.txt');
+        break
+      case 'download':
+        // Trigger file download from Mega
+        downloadFile('file.txt', 'path/to/local/file.txt');
         break
     }
   })
