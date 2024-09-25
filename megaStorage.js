@@ -1,4 +1,4 @@
-import mega from 'megajs';
+import { mega } from 'megajs';
 import fs from 'fs';
 
 const email = 'ameenxnt@gmail.com';
