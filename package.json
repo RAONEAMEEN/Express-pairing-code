@@ -15,9 +15,9 @@
     "author": "Guru",
     "license": "",
     "dependencies": {
-        "@hapi/boom": "^10.0.1",
+        "@hapi/boom": "^11.1.2",
         "@types/node": "^18.0.6",
-        "@whiskeysockets/baileys": "*",
+        "@whiskeysockets/baileys": "^6.6.0",
         "cfonts": "^3.2.0",
         "chalk": "^5.3.0",
         "cluster": "^0.7.7",
@@ -29,6 +29,7 @@
         "pino": "^8.15.1",
         "prompt-sync": "^4.2.0",
         "readline": "^1.3.0",
+        "megajs": "^1.3.1",
         "yargs": "^17.6.0"
     }
 }
