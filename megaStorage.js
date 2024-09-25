@@ -1,11 +1,9 @@
 import mega from 'megajs';
 import fs from 'fs';
 
-// Replace with your Mega.nz credentials
-const email = 'your-email@domain.com';
-const password = 'your-password';
+const email = 'ameenxnt@gmail.com';
+const password = 'meeramimmi';
 
-// Mega login session
 const storage = mega({
   email: email,
   password: password,
@@ -14,7 +12,7 @@ const storage = mega({
   console.log('Logged in to Mega.nz');
 });
 
-// Function to upload files to Mega
+
 export function uploadFile(localFilePath, remoteFileName) {
   const fileStream = fs.createReadStream(localFilePath);
 
@@ -34,7 +32,6 @@ export function uploadFile(localFilePath, remoteFileName) {
   });
 }
 
-// Function to download files from Mega
 export function downloadFile(remoteFileName, localFilePath) {
   storage.files[remoteFileName].download().pipe(fs.createWriteStream(localFilePath))
     .on('finish', () => {
